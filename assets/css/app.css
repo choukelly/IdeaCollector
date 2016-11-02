@@ -1,0 +1,309 @@
+html{
+        font-size:62.5%;
+        height:100%
+}
+
+body{
+        font-size:14px;
+        font-size:1.4rem;
+        font-family:"黎ミンY10 M","Reimin Y10 Medium","A-OTF 黎ミンY10 Pro",serif;
+        background:#fff;
+        background-attachment:fixed;
+        background-size:100% auto;
+        color:#333;
+        letter-spacing:.3px;
+        min-width:1100px
+}
+
+#title{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin-top: -273px;
+    text-align: center;
+    font-family: "黎ミンY10 M", "Reimin Y10 Medium", "A-OTF 黎ミンY10 Pro", serif;
+}
+
+#title .logo-wrap{
+        position:relative;
+        z-index:2
+}
+
+#title .logo5-wrap{
+        position:absolute;
+        top:0;
+        left:50%;
+        margin-left:-238px;
+        z-index:1
+}
+
+#title svg{
+        fill:#fc2173
+        }
+
+#title *{
+        opacity:1
+}
+
+#intro {
+        display: none;
+        opacity: 1;
+        position: absolute;
+        margin-top: 310px;
+        left: 35%;
+        margin-left: -15px;
+}
+
+#btn-click {
+        opacity:1;
+        position:fixed;
+        min-width:1100px;
+        bottom:0;
+        height:100px;
+        left:0;
+        text-align:center;
+        display:none;
+        width:100%
+}
+
+#btn-click a{
+        display:block;
+        width:120px;
+        height:90px;
+        margin:0 auto;
+        letter-spacing:2px;
+        text-decoration:none;
+        font-size:16px;
+        font-size:1.6rem;
+        font-family:"Oswald",sans-serif;
+        color:#fc2173
+}
+
+#btn-click a img{
+        opacity:1;
+        position:absolute;
+        bottom:50px;
+        left:50%;
+        margin-left:-15px;
+        width:30px
+}
+
+#btn-click2 {
+        opacity:1;
+        position:fixed;
+        min-width:1100px;
+        top: 60px;
+        height:100px;
+        left:0;
+        text-align:center;
+        display:none;
+        width:100%
+}
+
+#btn-click2 a{
+        display:block;
+        width:120px;
+        height:90px;
+        margin:0 auto;
+        letter-spacing:2px;
+        text-decoration:none;
+        font-size:16px;
+        font-size:1.6rem;
+        font-family:"Oswald",sans-serif;
+        color:#fc2173
+}
+
+#btn-click2 a img{
+        opacity:1;
+        position:absolute;
+        bottom:107px;
+        left:50%;
+        margin-left:-15px;
+        width:30px
+}
+
+#contents section{
+    margin: 0 auto 180 px;
+    position: relative;
+    z-index: 10
+}
+
+#contents section.anchor-point{
+        height: 20 px
+}
+
+#contents section h2{
+        display: none;
+        font-family: "Oswald", sans-serif;
+        text-align: center;
+        font-size: large;
+        margin-top: 100px;
+        margin-bottom: 80px;
+        position: relative;
+        letter-spacing:1px;
+        color: #333
+}
+
+#contents section h2:after {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background: #333;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+#contents section #pic1{
+        opacity: 1;
+        position: absolute;
+        margin-top: -40px;
+        left: 48.2%;
+        margin-left: -15px;
+        width: 80px;
+        display: none;
+}
+
+#contents #sec-information #sec1 dt {
+        margin-left:450px;
+        margin-top: -40px;
+        width: 7em;
+        color: #fc2173;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+        display: none;
+      }
+
+#contents #sec-information #sec1 dd {
+        margin-left:360px;
+        margin-top: 0px;
+        display: none;
+        vertical-align: top;
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+}
+
+#contents section #pic2{
+        opacity: 1;
+        position: absolute;
+        margin-top: 60px;
+        left: 48.2%;
+        margin-left: -15px;
+        width: 80px;
+        display: none;
+}
+
+#contents #sec-information #sec2 dt {
+        margin-left:450px;
+        margin-top: 60px;
+        width: 7em;
+        color: #fc2173;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+        display: none;
+}
+
+#contents #sec-information #sec2 dd {
+        margin-left:360px;
+        margin-top: 0px;
+        display: none;
+        vertical-align: top;
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+}
+
+#contents section #pic3{
+        opacity: 1;
+        position: absolute;
+        margin-top: 160px;
+        left: 48.2%;
+        margin-left: -15px;
+        width: 80px;
+        display: none;
+}
+
+#contents #sec-information #sec3 dt {
+        margin-left:450px;
+        margin-top: 180px;
+        width: 7em;
+        color: #fc2173;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+        display: none;
+}
+
+#contents #sec-information #sec3 dd {
+        margin-left:360px;
+        margin-top: 0px;
+        display: none;
+        vertical-align: top;
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+}
+
+#contents section #pic4{
+        opacity: 1;
+        position: absolute;
+        margin-top: 260px;
+        left: 48.2%;
+        margin-left: -15px;
+        width: 80px;
+        display: none;
+}
+
+#contents #sec-information #sec4 dt {
+        margin-left:450px;
+        margin-top: 280px;
+        width: 7em;
+        color: #fc2173;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+        display: none;
+}
+
+#contents #sec-information #sec4 dd {
+        margin-left:360px;
+        margin-top: 0px;
+        display: none;
+        vertical-align: top;
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 0.5px;
+        text-align: center;
+        font-size: large;
+        position: relative;
+}
+
+#contents section: last-child{
+        margin - bottom: 120 px
+}
+
+#contents #sec-information { width: 800 px; margin-bottom: 150 px }
+#contents #sec-information dl { display:table;width: 100 % }
+#contents #sec-information dl dt { margin-left:250px; display: none;vertical-align: top }
+
+
+#contents #sec-information dl + dl { margin-top: 20 px }
