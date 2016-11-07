@@ -11,3 +11,4 @@ json.readFile('name.json',function(err,data){
   console.log('Content-type: text/html; charset=utf-8\n')
   console.log("<h1>hello, " + data[param.ID]+"</h1>")
 })
+
