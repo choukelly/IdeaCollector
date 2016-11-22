@@ -1,0 +1,36 @@
+{
+  "name": "loginapp",
+  "version": "1.0.0",
+  "description": "simple authentication system",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choukelly/IdeaCollector.git"
+  },
+  "author": "Kelly Chou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/choukelly/IdeaCollector/issues"
+  },
+  "homepage": "https://github.com/choukelly/IdeaCollector#readme"
+}
