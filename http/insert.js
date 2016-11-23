@@ -9,11 +9,11 @@ var connection = mysql.createConnection({
 connection.connect();
 
 var classmate ={
-  student: 'Chou Kelly',
-  major: 'Engineering Science'
+  ideaname: 'ideahaha',
+  comment: 'come on'
 };
 
-var query = connection.query('insert into membership set ?', classmate, function(err, result){
+var query = connection.query('insert into ideaPool set ?', classmate, function(err, result){
   if(err){
     console.error(err);
     return;
