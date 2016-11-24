@@ -1,20 +1,23 @@
 <html>
-
-
   <head>
     <title>IdeaCollector http exercise</title>
   </head>
 
   <body>
-    <form action="do.njs">
-      <input name="ideaname" placeholder="idea" type="text" /><br/>
-      <input name="comment" placeholder="your comment" type="text" /><br/>
-      <button type="submit">add</button>
-      <button type="submit">delete</button><br/>
-      <input name="ideaname" placeholder="idea" type="text" /><br/>
+    <form action="add.njs" method='POST'>
+      <input name="ideaname" placeholder="idea" type="text"/><br/>
+      <input name="comment" placeholder="your comment" type="text"/><br/>
+      <input type="submit" value="add">
+    </form>
+    <form action="delete.njs">
+      <input name="ideaname" placeholder="idea" type="text"/><br/>
+      <input name="comment" placeholder="your comment" type="text"/><br/>
+      <input type ="submit" value="delete"><br/>
+    </form>
+    <form action="search.njs">
+      <input name="ideaname" placeholder="idea" type="text"/><br/>
       <button type="submit">search</button>
     </form>
   </body>
 
 </html>
-<!-- Test by James  -->
