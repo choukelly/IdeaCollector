@@ -1,0 +1,21 @@
+{
+  "graph": [],
+  "links": [
+    {"source": 0, "target": 1},
+    {"source": 0, "target": 2},
+    {"source": 0, "target": 3},
+    {"source": 0, "target": 4},
+    {"source": 0, "target": 5},
+    {"source": 0, "target": 6},
+    ],
+  "nodes": [
+    {"size": 20, "score": 0, "name": "Androsynth", "type": "circle"},
+    {"size": 10, "score": 0.2, "name": "Chenjesu", "type": "circle"},
+    {"size": 60, "score": 0.4, "name": "Ilwrath", "type": "circle"},
+    {"size": 10, "score": 0.6, "name": "Mycon", "type": "circle"},
+    {"size": 60, "score": 0.8, "name": "Spathi", "type": "circle"},
+    {"size": 10, "score": 1, "name": "Umgah", "type": "circle"},
+    ],
+  "directed": false,
+  "multigraph": false
+}
