@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+rect {
+  fill: none;
+  pointer-events: all;
+}
+
+.node {
+  fill: #000;
+}
+
+.cursor {
+  fill: none;
+  stroke: red;
+  pointer-events: none;
+}
+
+.link {
+  stroke: gray;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+	fill = d3.scale.category20();
+
+// mouse event vars
+var selected_node = null,
+    selected_link = null,
+    mousedown_link = null,
+    mousedown_node = null,
+    mouseup_node = null;	
+	
+var force = d3.layout.force()
+    .size([width, height])
+    //.nodes([{}]) // initialize with a single node
+    .linkDistance(30)//線的長度
+    .charge(-60)//點跟點之間的排斥力
+    .on("tick", tick);
+
+var drag = force.drag()
+    .on("dragstart", dragstart);
+	
+// init svg
+var svg = d3.select("body").append("svg:svg")
+    .attr("width", width)
+    .attr("height", height)
+    .on("mousemove", mousemove)
+    .on("mousedown", mousedown)
+
+svg.append("svg:rect")
+    .attr("width", width)
+    .attr("height", height);
+
+	
+// get layout properties
+var node = svg.selectAll(".node"),
+    link = svg.selectAll(".link");
+	
+// add keyboard callback
+d3.select(window)
+    .on("keydown", keydown);
+
+d3.json("//graph.json", function(error, graph) {
+  if (error) throw error;
+
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+  link = link.data(graph.links)
+    .enter().append("line")
+      .attr("class", "link");
+
+  node = node.data(graph.nodes)
+    .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", 12)
+      .on("dblclick", dblclick)
+      .call(drag);
+});
+	
+var cursor = svg.append("circle")
+    .attr("r", 30)
+    .attr("transform", "translate(-100,-100)")
+    .attr("class", "cursor");
+
+restart();
+
+function mousemove() {//跟著滑鼠做移動
+  cursor.attr("transform", "translate(" + d3.mouse(this) + ")");//橫向移動___,垂直___
+}
+
+function mousedown() {
+  var point = d3.mouse(this),
+      node = {x: point[0], y: point[1]},
+      n = nodes.push(node);
+
+  // add links to any nearby nodes
+  nodes.forEach(function(target) {
+
+    var x = target.x - node.x,//node是即將要新增的點
+        y = target.y - node.y;
+    if (Math.sqrt(x * x + y * y) < 30) {//新增點的時候，距離多少會跟附近的點連起來
+      links.push({source: node, target: target});
+    }
+  });
+
+  restart();
+}
+
+function tick() {
+  link.attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  node.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+}
+
+function rescale() {
+  trans=d3.event.translate;
+  scale=d3.event.scale;
+
+  svg.attr("transform",
+      "translate(" + trans + ")"
+      + " scale(" + scale + ")");
+}
+
+function restart() {
+  link = link.data(links);//把存在links裏頭的資料傳進去link中
+
+  link.enter().insert("line", ".node")
+      .attr("class", "link")
+	  .on("mousedown",
+        function(d) {
+          mousedown_link = d;
+          if (mousedown_link == selected_link) selected_link = null;
+          else selected_link = mousedown_link;
+          selected_node = null;
+          redraw();
+        });
+
+  node = node.data(nodes);//把存在nodes裏頭的資料傳進去node中
+
+  node.enter().insert("circle", ".cursor")//insert為在已經存在的元素之前創建並插入一個元素
+      .attr("class", "node")
+      .attr("r", 5)
+      .call(force.drag);//給node綁定拖動行為
+	  
+  if (d3.event) {
+    // prevent browser's default behavior
+    d3.event.preventDefault();
+  }
+
+  force.start();
+}
+
+function dblclick(d) {
+  d3.select(this).classed("fixed", d.fixed = false);
+}
+
+function dragstart(d) {
+  d3.select(this).classed("fixed", d.fixed = true);
+}
+
+function spliceLinksForNode(node) {
+  toSplice = links.filter(
+    function(l) {
+      return (l.source === node) || (l.target === node); });
+  toSplice.map(
+    function(l) {
+      links.splice(links.indexOf(l), 1); });
+}
+
+function keydown() {
+  if (!selected_node && !selected_link) return;
+  switch (d3.event.keyCode) {
+    case 8: // backspace
+    case 46: { // delete
+      if (selected_node) {
+        nodes.splice(nodes.indexOf(selected_node), 1);
+        spliceLinksForNode(selected_node);
+      }
+      else if (selected_link) {
+        links.splice(links.indexOf(selected_link), 1);
+      }
+      selected_link = null;
+      selected_node = null;
+      redraw();
+      break;
+    }
+  }
+}
+</script>
